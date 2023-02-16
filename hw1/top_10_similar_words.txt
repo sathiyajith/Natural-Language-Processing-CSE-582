@@ -1,0 +1,49 @@
+Top 10 words for "cat"
+												dog		0.578437
+                                              cats		0.557140
+                                             snake		0.502288
+                                              pets		0.466670
+                                              dogs		0.457142
+                                             shark		0.455463
+                                               pet		0.452214
+                                           hamster		0.445716
+                                              goat		0.437035
+                                           breasts		0.430715
+
+
+Top 10 words for "she"
+												her		0.763328
+                                                he		0.750437
+                                           herself		0.620647
+                                            mother		0.594087
+                                                He		0.594041
+                                           husband		0.575199
+                                             woman		0.555901
+                                          daughter		0.553597
+                                                 I		0.541216
+                                               him		0.539362
+											   
+Top 10 words for "like"
+											really		0.497217
+                                              nice		0.484449
+                                             weird		0.483814
+                                            always		0.472326
+                                             crazy		0.467614
+                                       stereotyped		0.449849
+                                             liked		0.439450
+                                              want		0.439270
+                                           strange		0.436577
+                                          actually		0.435123
+
+
+Top 10 words for "cat" "she" "like"
+											really		0.479894
+                                                he		0.445024
+                                                 I		0.432072
+                                            always		0.431383
+                                                me		0.402063
+                                             laugh		0.400421
+                                               She		0.395371
+                                              good		0.387909
+                                          actually		0.387869
+                                              know		0.384947
