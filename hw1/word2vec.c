@@ -758,6 +758,6 @@ int main(int argc, char **argv) {
 
 // What input format does Word2Vec require?
 
-// The word2vec requires a input dataset file that contains multiple lines of text. 
-// This document can be of any format and it is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. 
+// The word2vec requires a input dataset file that contains multiple lines of text. It can be of any format.
+// This document is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. 
 // The other way is to pass vocabulary or corpus separate from the training data using the parameter -read-vocab.
