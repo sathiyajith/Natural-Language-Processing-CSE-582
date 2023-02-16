@@ -732,31 +732,31 @@ int main(int argc, char **argv) {
 // How does CBOW compose context embeddings?
 
 // The context words are converted to corresponding word embeddings and averaged to form a single context embedding.
-// This embedding along with target word are fed to 3 layered neural network.
-// The input from first layer is passed to the hidden layer where the vectors are multiplied by weights and bias is added.
+// This embedding along with target word are fed to 3 layered neural network created in InitNet() function.
+// The input from first layer is passed to the hidden layer where the vectors are multiplied by weights and then the bias is added.
 // Stochastic Gradient Descent (SGD) is used as loss function for reducing the negative log likelihood and learning the parameters.
 // Once the model is trained, the output is normalized using the softmax function in last layer and provides the probability distribution over vocabulary.
 
 
 // How does it compute word probability given context?
 
-// The word probability given context P(w/c) is generated from the vector using softmax function.
+// The word probability given context P(w/c) is generated from the vectors using softmax function.
 // The softmax function is implemented using Huffman tree in CreateBinaryTree() function. The leaf nodes in the tree are the words in the vocabulary and the non leaf nodes represent the probability distribution over its child nodes. 
 // The probability of the leaf node is computed by traversing from root to leaf and multiplying all the probabilities in its path.
 
 // How does it implement negative sampling?
 
 // The negative sampling is updating the weights by training the embeddings with a small set of words that are not the actual neighbours or context words.
-// That is done by randomly sampling k negative samples and updating the weights in such a way that the resulting probability is low in TrainModel() and TrainModelThread() functions.
+// That is done by randomly sampling k negative samples. The weights are updated in such a way that the resulting probability is low in TrainModel() and TrainModelThread() functions.
 
 // Any other parameters apart from the word embeddings and context embeddings?
 
 // Apart from word embeddings and context embeddings, cbow model learns weights and bias as learning parameters. 
 // These are computed from the hidden layer which finetunes the weight that is multiplied with the input vector and adds bias to give the probability. 
-// These weights and bias for each vector are calculated over many iterations by minimising the loss function.
+// These weights and bias for each vector are calculated iteratively by minimising the loss function.
 
 // What input format does Word2Vec require?
 
-// The word2vec requires a input dataset file that contains multiple lines of text. It can be of any format.
-// This document is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. 
+// The word2vec requires a input dataset file that contains multiple lines of text, separated by space or tab or EOL.
+// This input document is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. 
 // The other way is to pass vocabulary or corpus separate from the training data using the parameter -read-vocab.
