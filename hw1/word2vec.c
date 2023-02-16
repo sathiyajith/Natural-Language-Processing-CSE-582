@@ -740,15 +740,14 @@ int main(int argc, char **argv) {
 
 // How does it compute word probability given context?
 
-// The word probability given context P(w/c)=P(c/w)P(w) is generated from the vector using softmax function.
+// The word probability given context P(w/c) is generated from the vector using softmax function.
 // The softmax function is implemented using Huffman tree in CreateBinaryTree() function. The leaf nodes in the tree are the words in the vocabulary and the non leaf nodes represent the probability distribution over its child nodes. 
 // The probability of the leaf node is computed by traversing from root to leaf and multiplying all the probabilities in its path.
 
 // How does it implement negative sampling?
 
-// The negative sampling is removing infrequent words from vocabulary. 
-// That is done by sorting and removing words that have count less than min_count variable using SortVocab() and ReduceVocab(). 
-// It uses unigram table to compute the frequency of each word in InitUnigramTable() function.
+// The negative sampling is updating the weights by training the embeddings with a small set of words that are not the actual neighbours or context words.
+// That is done by randomly sampling k negative samples and updating the weights in such a way that the resulting probability is low in TrainModel() and TrainModelThread() functions.
 
 // Any other parameters apart from the word embeddings and context embeddings?
 
