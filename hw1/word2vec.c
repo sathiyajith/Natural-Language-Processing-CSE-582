@@ -729,29 +729,35 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-//How does CBOW compose context embeddings?
+// How does CBOW compose context embeddings?
 
-//The context words are converted to corresponding word embeddings and averaged to form a single context embedding.
-//This embedding along with target word are fed to 3 layered neural network.
-//The input from first layer is passed to the hidden layer where the vectors are multiplied by weights and bias is added.
-//Stochastic Gradient Descent (SGD) is used as loss function for reducing the negative log likelihood and learning the parameters.
-//Once the model is trained, the output is normalized using the softmax function in last layer and provides the probability distribution over vocabulary.
+// The context words are converted to corresponding word embeddings and averaged to form a single context embedding.
+// This embedding along with target word are fed to 3 layered neural network.
+// The input from first layer is passed to the hidden layer where the vectors are multiplied by weights and bias is added.
+// Stochastic Gradient Descent (SGD) is used as loss function for reducing the negative log likelihood and learning the parameters.
+// Once the model is trained, the output is normalized using the softmax function in last layer and provides the probability distribution over vocabulary.
 
 
-//How does it compute word probability given context?
+// How does it compute word probability given context?
 
 // The word probability given context P(w/c)=P(c/w)P(w) is generated from the vector using softmax function.
-//The softmax function is implemented using Huffman tree in CreateBinaryTree() function. The leaf nodes in the tree are the words in the vocabulary and the non leaf nodes represent the probability distribution over its child nodes. 
-//The probability of the leaf node is computed by traversing from root to leaf and multiplying all the probabilities in its path.
+// The softmax function is implemented using Huffman tree in CreateBinaryTree() function. The leaf nodes in the tree are the words in the vocabulary and the non leaf nodes represent the probability distribution over its child nodes. 
+// The probability of the leaf node is computed by traversing from root to leaf and multiplying all the probabilities in its path.
 
-//How does it implement negative sampling?
+// How does it implement negative sampling?
 
-//The negative sampling is removing infrequent words from vocabulary. That is done by sorting and removing words that have count less than min_count variable using SortVocab() and ReduceVocab(). It uses unigram table to compute the frequency of each word in InitUnigramTable() function.
+// The negative sampling is removing infrequent words from vocabulary. 
+// That is done by sorting and removing words that have count less than min_count variable using SortVocab() and ReduceVocab(). 
+// It uses unigram table to compute the frequency of each word in InitUnigramTable() function.
 
-//Any other parameters apart from the word embeddings and context embeddings?
+// Any other parameters apart from the word embeddings and context embeddings?
 
-// Apart from word embeddings and context embeddings, cbow model learns weights and bias as learning parameters. These are computed from the hidden layer which finetunes the weight that is multiplied with the input vector and adds bias to give the probability. These weights and bias for each vector are calculated over many iterations by minimising the loss function.
+// Apart from word embeddings and context embeddings, cbow model learns weights and bias as learning parameters. 
+// These are computed from the hidden layer which finetunes the weight that is multiplied with the input vector and adds bias to give the probability. 
+// These weights and bias for each vector are calculated over many iterations by minimising the loss function.
 
-//What input format does Word2Vec require?
+// What input format does Word2Vec require?
 
-// The word2vec requires a input dataset file that contains multiple lines of text. This document can be of any format and it is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. The other way is to pass vocabulary or corpus separate from the training data using the parameter -read-vocab.
+// The word2vec requires a input dataset file that contains multiple lines of text. 
+// This document can be of any format and it is considered as training data and the vocabulary is read from it to generate a corpus using ReadWord() and AddWordToVocab() functions. 
+// The other way is to pass vocabulary or corpus separate from the training data using the parameter -read-vocab.
