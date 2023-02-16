@@ -747,7 +747,8 @@ int main(int argc, char **argv) {
 // How does it implement negative sampling?
 
 // The negative sampling is updating the weights by training the embeddings with a small set of words that are not the actual neighbours or context words.
-// That is done by randomly sampling k negative samples. The weights are updated in such a way that the resulting probability is low in TrainModel() and TrainModelThread() functions.
+// That is done by randomly sampling k negative samples. 
+// The weights are updated in such a way that the resulting probability is low for negative samples in TrainModel() and TrainModelThread() functions.
 
 // Any other parameters apart from the word embeddings and context embeddings?
 
